@@ -6,32 +6,43 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardActions from "@mui/material/CardActions";
-import { Avatar, CardHeader } from "@mui/material";
+import { Avatar, Box, CardHeader } from "@mui/material";
+
+const styles = {
+  media: {
+    background: 'red',
+    height: 250,
+    width: 275,
+  }
+};
 
 const PeopleCard = ({ name, age, email, photoUrl }) => {
   return (
-    <Card sx={{ minWidth: 350, maxWidth: 400, minHeight: 350, maxHeight: 500 }}>
+    <Card sx={{ minWidth: 275, maxWidth: 275, minHeight: 375, maxHeight: 450 }}>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="185"
+          style={styles.media}
           image={photoUrl}
           alt={name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div" color="blue">
-            {name}
+          <Typography gutterBottom variant="h6" component="div" color="blue" textAlign="center">
+            {name} 
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Idade: {age} | Email: {email}
+            <b>Idade:</b> {age} <br /> 
+            <b>Email:</b> {email}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions sx={{ justifyContent: "center" }}>
         <Button size="small" color="primary">
           Compartilhar
         </Button>
-        <Button size="small">Linkedin</Button>
+        <Button size="medium" variant="contained">
+          Linkedin
+        </Button>
       </CardActions>
     </Card>
   );
